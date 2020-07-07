@@ -23,17 +23,16 @@ class ShopPage extends React.Component {
         const { updateCollections } = this.props; 
         const collectionRef = firestore.collection('collections');
 
-        this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-            // console.log(snapshot);
+    collectionRef.get().then(snapshot => {   
             const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
             updateCollections(collectionsMap); 
             this.setState({loading: false})
-        })
+        });
     }
 
   render() {
       const {match} = this.props;
-      const loading = this.state; 
+      const {loading} = this.state; 
       return (
         <div className='shop-page'>
             <Route exact path={`${match.path}`} render={(props) => <CollectionsOverviewWithSpinner isLoading={loading} {...props} />} />
