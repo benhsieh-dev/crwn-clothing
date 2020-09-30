@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'; 
 
-import './App.css';
+// import './App.css';
 
 import HomePage from './pages/homepage/homepage.component'; 
 import ShopPage from './pages/shop/shop.component'; 
@@ -13,50 +13,10 @@ import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
 
+import {GloablStyle}from "./global.styles"; 
+
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions'; 
-
-// const App = ({checkUserSession, currentUser}) => {
-//   // unsubscribeFromAuth = null;
-
-//   console.log(currentUser); 
-//    useEffect(() => {
-//      checkUserSession();
-//    }, [checkUserSession]);  
-
-//     return (
-//       <div>
-//         <Header />
-//         <Switch>
-//           <Route exact path='/' component={HomePage} />
-//           <Route path='/shop' component={ShopPage} />
-//           <Route exact path='/checkout' component={CheckoutPage} />
-//           <Route 
-//             exact 
-//             path='/signin' 
-//             render={() => 
-//               currentUser ? (
-//                 <Redirect to='/' />
-//                 ) : (
-//                 <SignInAndSignUpPage />
-//                 )
-//               } 
-//             />
-//         </Switch>
-//       </div>
-//     );
-// }
-
-// const msp = createStructuredSelector({
-//   currentUser: selectCurrentUser,       
-// }); 
-
-// const mdp = dispatch => ({
-//   checkUserSession: () => dispatch(checkUserSession())
-// }); 
-
-
-// export default connect(msp, mdp)(App);
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -73,6 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GloablStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
