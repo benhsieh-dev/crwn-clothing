@@ -28,3 +28,7 @@ export const SpinnerContainer = styled.div`
     }
   }
 `;
+
+
+// Why is this statement neccesary?
+export default SpinnerContainer; 
