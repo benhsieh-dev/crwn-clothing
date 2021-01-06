@@ -5,7 +5,7 @@
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@types/react-router-dom": "^4.3.5",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "firebase": "^6.5.0",
     "latest-version": "^5.1.0",
     "lodash.memoize": "^4.1.2",
